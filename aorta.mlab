@@ -4,22 +4,21 @@ network  {
 }
 module AortaUnwinding {
   internal  {
-    frame = "621 349 120 56"
+    frame = "605 421 120 56"
     moduleGroupName = ""
     windows  {
       window _default {
         geometry = "887 495 161 150"
         sizeHint = "161 150"
-        wasOpen = no
+        wasOpen = yes
       }
     }
   }
   fields  {
     instanceName = AortaUnwinding
-    Y-Size = 0
-    Z-Size = 0
-    Method = radial
-     = ""
+    Y-Size = 100
+    Z-Size = 100
+    Method = adaptiv
   }
 }
 module ImageLoad {

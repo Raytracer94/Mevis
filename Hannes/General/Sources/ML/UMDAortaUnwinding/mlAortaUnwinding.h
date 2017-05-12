@@ -59,7 +59,8 @@ private:
   //! 
   NotifyField* m_ComputeFld;
   //! 
-  StringField* m_Fld;
+
+  BaseField* m_CenterlineFld;
   //@}
 
   // Implements interface for the runtime type system of the ML.
