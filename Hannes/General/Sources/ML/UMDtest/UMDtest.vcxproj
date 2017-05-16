@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6292D6D6-A03F-3BB5-B622-B33D5071EF04}</ProjectGuid>
+    <RootNamespace>UMDTest</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <OutputDirectory>tmp\release\obj\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>tmp\release\obj\</IntermediateDirectory>
+    <PrimaryOutput>UMDTest</PrimaryOutput>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <OutputDirectory>tmp\debug\obj\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>tmp\debug\obj\</IntermediateDirectory>
+    <PrimaryOutput>UMDTest</PrimaryOutput>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tmp\release\obj\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tmp\release\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UMDTest</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tmp\debug\obj\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tmp\debug\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UMDTest_d</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVisLab\Standard\Sources\ML\MLBase;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\ML\include\deprecated;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\ML\include;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra\deprecated;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLProfilingManager\Include;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLUtilities;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLMemoryManager\Include;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\ThirdPartyWarnings;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\ThirdParty\Sources\misc\boost;.;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\ThirdParty\Sources\Qt4\qt\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 /we4102 /we4131 /we4218 /we4431 /we4715 /we4723 /we4002 /we4013 /we4056 /we4054 /we4067 /we4068 /we4130 /we4146 /we4150 /we4172 /we4210 /we4351 /we4373 /we4366 /we4552 /we4553 /we4804 /we4910 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>tmp\release\obj\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4201;4251;4127;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>tmp\release\obj\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;MEVIS_TARGET=UMDTest;MEVIS_64BIT;MEVISLAB_VERSION=208;ML_VERSION_2;BOOST_ALL_DYN_LINK;MeVisLab;MEVISLAB;__LITTLE_ENDIAN__;ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport);ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport);ML_RETURN_VALUE_SHOULD_BE_USED=;NOMINMAX;_CRT_SECURE_NO_DEPRECATE;UMDTEST_EXPORTS;ML_WARN_DEPRECATED;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(OutDir)</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level4</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>MLBase.lib;ML.lib;MLLinearAlgebra.lib;MLMemoryManager.lib;MLProfilingManager.lib;MLUtilities.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\ThirdParty\lib;C:/Users/Hannes/Desktop/Mevis/Hannes/General/lib;"C:/Program Files/MeVisLab2.8.2VC14-64/Packages/MeVisLab/Standard/lib";"C:/Program Files/MeVisLab2.8.2VC14-64/Packages/MeVis/Foundation/lib";%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)UMDTest.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;MEVIS_TARGET=UMDTest;MEVIS_64BIT;MEVISLAB_VERSION=208;ML_VERSION_2;BOOST_ALL_DYN_LINK;MeVisLab;MEVISLAB;__LITTLE_ENDIAN__;ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport);ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport);ML_RETURN_VALUE_SHOULD_BE_USED=;NOMINMAX;_CRT_SECURE_NO_DEPRECATE;UMDTEST_EXPORTS;ML_WARN_DEPRECATED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>if not exist "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib" mkdir "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"
+if exist "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated\UMDTest.dll" (
+  echo removing old updated DLL
+  del "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated\UMDTest.dll"
+)
+echo copy "$(OutDir)UMDTest.dll" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\UMDTest.dll"
+copy "$(OutDir)UMDTest.dll" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\UMDTest.dll"
+if errorLevel 1 (
+  echo DLL locked, copying to /updated subdir - and removing source file
+  if not exist "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated" mkdir "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated"
+  copy "$(OutDir)UMDTest.dll" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated\UMDTest.dll"
+  del "$(OutDir)UMDTest.dll"
+)
+echo if exist "$(OutDir)UMDTest.pdb" copy "$(OutDir)UMDTest.pdb" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"
+if exist "$(OutDir)UMDTest.pdb" copy "$(OutDir)UMDTest.pdb" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"
+echo if exist "$(OutDir)UMDTest.lib" copy "$(OutDir)UMDTest.lib" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"
+if exist "$(OutDir)UMDTest.lib" copy "$(OutDir)UMDTest.lib" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"</Command>
+      <Message>Running postbuild commands...</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVisLab\Standard\Sources\ML\MLBase;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\ML\include\deprecated;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\ML\include;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra\deprecated;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLLinearAlgebra;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLProfilingManager\Include;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLUtilities;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\MLMemoryManager\Include;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\Foundation\Sources\ThirdPartyWarnings;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\ThirdParty\Sources\misc\boost;.;c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\ThirdParty\Sources\Qt4\qt\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 /we4102 /we4131 /we4218 /we4431 /we4715 /we4723 /we4002 /we4013 /we4056 /we4054 /we4067 /we4068 /we4130 /we4146 /we4150 /we4172 /we4210 /we4351 /we4373 /we4366 /we4552 /we4553 /we4804 /we4910 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>tmp\debug\obj\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4201;4251;4127;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>tmp\debug\obj\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;MEVIS_TARGET=UMDTest;MEVIS_64BIT;MEVISLAB_VERSION=208;ML_VERSION_2;BOOST_ALL_DYN_LINK;DEBUG;MeVisLab;MEVISLAB;__LITTLE_ENDIAN__;ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport);ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport);ML_RETURN_VALUE_SHOULD_BE_USED=;NOMINMAX;_CRT_SECURE_NO_DEPRECATE;UMDTEST_EXPORTS;ML_WARN_DEPRECATED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(OutDir)</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level4</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>MLBase_d.lib;ML_d.lib;MLLinearAlgebra_d.lib;MLMemoryManager_d.lib;MLProfilingManager_d.lib;MLUtilities_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>c:\Program Files\MeVisLab2.8.2VC14-64\Packages\MeVis\ThirdParty\lib;C:/Users/Hannes/Desktop/Mevis/Hannes/General/lib;"C:/Program Files/MeVisLab2.8.2VC14-64/Packages/MeVisLab/Standard/lib";"C:/Program Files/MeVisLab2.8.2VC14-64/Packages/MeVis/Foundation/lib";%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <OutputFile>$(OutDir)UMDTest_d.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;MEVIS_TARGET=UMDTest;MEVIS_64BIT;MEVISLAB_VERSION=208;ML_VERSION_2;BOOST_ALL_DYN_LINK;DEBUG;MeVisLab;MEVISLAB;__LITTLE_ENDIAN__;ML_LIBRARY_EXPORT_ATTRIBUTE=__declspec(dllexport);ML_LIBRARY_IMPORT_ATTRIBUTE=__declspec(dllimport);ML_RETURN_VALUE_SHOULD_BE_USED=;NOMINMAX;_CRT_SECURE_NO_DEPRECATE;UMDTEST_EXPORTS;ML_WARN_DEPRECATED;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>if not exist "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib" mkdir "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"
+if exist "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated\UMDTest_d.dll" (
+  echo removing old updated DLL
+  del "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated\UMDTest_d.dll"
+)
+echo copy "$(OutDir)UMDTest_d.dll" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\UMDTest_d.dll"
+copy "$(OutDir)UMDTest_d.dll" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\UMDTest_d.dll"
+if errorLevel 1 (
+  echo DLL locked, copying to /updated subdir - and removing source file
+  if not exist "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated" mkdir "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated"
+  copy "$(OutDir)UMDTest_d.dll" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib\updated\UMDTest_d.dll"
+  del "$(OutDir)UMDTest_d.dll"
+)
+echo copy "$(OutDir)UMDTest_d.pdb" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"
+copy "$(OutDir)UMDTest_d.pdb" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"
+echo if exist "$(OutDir)UMDTest_d.lib" copy "$(OutDir)UMDTest_d.lib" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"
+if exist "$(OutDir)UMDTest_d.lib" copy "$(OutDir)UMDTest_d.lib" "C:\Users\Hannes\Desktop\Mevis\Hannes\General/lib"</Command>
+      <Message>Running postbuild commands...</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="UMDTestInit.cpp" />
+    <ClCompile Include="Unwinding.cpp" />
+    <ClCompile Include="mlTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UMDTestInit.h" />
+    <ClInclude Include="UMDTestSystem.h" />
+    <ClInclude Include="Unwinding.h" />
+    <ClInclude Include="mlTest.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+  <ItemGroup>
+    <CustomBuild Include="UMDTest.pro">
+      <Command>set MLAB_COMPILER_VERSION=VC14-64
+"C:\Program Files\MeVisLab2.8.2VC14-64\Packages/MeVis/ThirdParty/Python/MeVisPython.exe" "C:/Program Files/MeVisLab2.8.2VC14-64/Packages/MeVis/BuildSystem\BuildTools\Scripts\createProject.py" UMDTest.pro</Command>
+      <Outputs>tmp\.#UMDTest.vcxproj</Outputs>
+      <Message>Compiling UMDTest.pro...</Message>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

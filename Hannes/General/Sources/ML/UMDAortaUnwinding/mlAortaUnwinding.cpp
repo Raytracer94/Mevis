@@ -60,16 +60,11 @@ void AortaUnwinding::handleNotification(Field* field)
 void AortaUnwinding::calculateOutputImageProperties(int /*outputIndex*/, PagedImage* outputImage)
 {
   // Setup data types and read-only flags of output image and input sub-images.
-  //AortaUnwindingOutputImageHandler::setupKnownProperties(outputImage);
+  AortaUnwindingOutputImageHandler::setupKnownProperties(outputImage);
 
 
-  outputImage->setImageExtent(ImageVector(200, m_YSizeFld->getIntValue(), m_ZSizeFld->getIntValue(), 0, 0, 0));
+  outputImage->setImageExtent(ImageVector(200, m_YSizeFld->getIntValue(), m_ZSizeFld->getIntValue(), 1,1,1));
 
-  // Change properties of output image outputImage here whose
-  // defaults are inherited from the input image 0 (if there is one).
-
-  // Verify if the input/output data types are supported by our handler.
-  // This will invalidate the output image if the type combination is not supported by the handler.
   AortaUnwindingOutputImageHandler::verifyProperties(outputImage);
 }
 

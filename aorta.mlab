@@ -4,7 +4,7 @@ network  {
 }
 module AortaUnwinding {
   internal  {
-    frame = "605 421 120 56"
+    frame = "653 461 120 56"
     moduleGroupName = ""
     windows  {
       window _default {
@@ -16,8 +16,8 @@ module AortaUnwinding {
   }
   fields  {
     instanceName = AortaUnwinding
-    Y-Size = 100
-    Z-Size = 100
+    Y-Size = 200
+    Z-Size = 200
     Method = adaptiv
   }
 }
