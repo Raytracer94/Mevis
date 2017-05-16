@@ -1,0 +1,23 @@
+//----------------------------------------------------------------------------------
+//! UMDTest module definitions.
+/*!
+// \file    Test.script
+// \author  Hannes
+// \date    2017-05-12
+*/
+//----------------------------------------------------------------------------------
+
+
+Window {
+  Vertical {
+    margin = 3
+    Field Y-Size {
+    }
+    Field Z-Size {
+    }
+    Field Method {
+    }
+    Field Compute {
+    }
+  }
+}

@@ -1,0 +1,20 @@
+//----------------------------------------------------------------------------------
+//! UMDAortaUnwinding module definitions.
+/*!
+// \file    UMDAortaUnwinding.def
+// \author  Hannes
+// \date    2017-05-09
+*/
+//----------------------------------------------------------------------------------
+
+
+MLModule AortaUnwinding {
+  DLL                = "UMDAortaUnwinding"
+
+  genre              = ""
+  author             = "Hannes"
+  comment            = ""
+  keywords           = ""
+  seeAlso            = ""
+  externalDefinition = $(LOCAL)/AortaUnwinding.script
+}  

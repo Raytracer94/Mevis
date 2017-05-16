@@ -1,0 +1,61 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module AortaUnwinding {
+  internal  {
+    frame = "653 461 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "887 495 161 150"
+        sizeHint = "161 150"
+        wasOpen = yes
+      }
+    }
+  }
+  fields  {
+    instanceName = AortaUnwinding
+    Y-Size = 200
+    Z-Size = 200
+    Method = adaptiv
+  }
+}
+module ImageLoad {
+  internal  {
+    frame = "521 573 128 56"
+    moduleGroupName = ""
+    showNetworkPanel = true
+    windows  {
+      window _default {
+        geometry = "730 392 474 357"
+        sizeHint = "474 357"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ImageLoad1
+    filename = C:/Users/Hannes/Downloads/Datensaetze/proband_anonymous/seg.dcm
+    autoLoad = TRUE
+    readRaw = FALSE
+    rawX = 1
+    rawY = 1
+    rawZ = 1
+    rawC = 1
+    rawT = 1
+    rawU = 1
+    dataTypeRaw = "unsigned int8"
+    planarConfig = Contiguous
+    byteOrder = LittleEndian
+    dataOffset = 0
+    pageSizeHint = "0 0 0 0 0 0"
+    suppressErrorLog = FALSE
+    dicomIgnoreHalfVoxelShift = FALSE
+    suppressMLImageFormatCheckSumTests = FALSE
+  }
+}
+connections  {
+  AortaUnwinding.input0 = ImageLoad1.output0
+}
+networkModel = ""
