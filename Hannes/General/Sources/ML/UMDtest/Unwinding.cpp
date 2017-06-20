@@ -72,7 +72,7 @@ int Unwinding::calculateUnwindedImageViaCircles()
 			for (int z = 0; z < zSize; z++) // depthstep
 			{
 				upvector = currpointmarker.vec;
-				sampledpoint =  currpoint + upvector*zstep;//  * ml::rotation3D(axis, (currdegree*ML_M_PI) / 180);
+				sampledpoint = currpoint + upvector*zstep;// * ml::rotation3D(axis, (currdegree*ML_M_PI) / 180);
 				UnwindedImage[z*ySize*zSize + y*zSize + x] = linearInterpolation(sampledpoint);
 				zstep += zsamplingstep;
 			}

@@ -12,9 +12,12 @@
 
 #pragma once
 
+// Local includes
+#include "mlVTKCommonWrappers.h"
+#include <vtkParametricFunction.h>
+#include <vtkSmartPointer.h>
 
 #include "UMDTestSystem.h"
-
 #include <mlModuleIncludes.h>
 #include <mlBase.h>
 #include <mlXMarkerList.h>
@@ -72,7 +75,7 @@ private:
 
 
 	// Variables for realworldcalculation
-
+	
 	XMarkerList m_realworldposition;
 	BaseField *m_pOutRealWorldFld;
 

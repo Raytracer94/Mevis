@@ -59,24 +59,20 @@ void Test::handleNotification(Field* field)
 	ML_TRACE_IN("Test::handleNotification()");
 
 	if (m_ComputeFld == field)
-	{
+	{		
+		// get centerline 
+		auto pXmarkerList = mlbase_cast<XMarkerList*>(m_CenterlineFld->getBaseValue());
 
-		// alocate memory
 		// set imagesizes
-		m_uiUnwindedImageWidth = 200;
+		m_uiUnwindedImageWidth = pXmarkerList->getSize();
 		m_uiUnwindedImageHeight = m_YSizeFld->getIntValue();
 		m_uiUnwindedImageDepth = m_ZSizeFld->getIntValue();
-
-
 
 		// automatically deletes old memory
 		if (m_psUnwindedImage) {
 			delete(m_psUnwindedImage);
 		}
 		m_psUnwindedImage = new unsigned short[m_uiUnwindedImageWidth*m_uiUnwindedImageHeight*m_uiUnwindedImageDepth];
-
-		// get centerline 
-		auto pXmarkerList = mlbase_cast<XMarkerList*>(m_CenterlineFld->getBaseValue());
 
 		// test for valid input datas
 		if (getUpdatedInputImage(0))
