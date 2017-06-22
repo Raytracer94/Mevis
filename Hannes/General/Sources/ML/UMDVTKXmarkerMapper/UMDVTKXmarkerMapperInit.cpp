@@ -3,18 +3,17 @@
 /*!
 // \file    
 // \author  Hannes
-// \date    2017-05-12
+// \date    2017-06-21
 */
 //----------------------------------------------------------------------------------
 
-#include "UMDTestSystem.h"
+#include "UMDVTKXmarkerMapperSystem.h"
 
 // Include definition of ML_INIT_LIBRARY.
 #include <mlLibraryInitMacros.h>
 
 // Include all module headers ...
-#include "mlTest.h"
-#include "Unwinding.h"
+#include "mlVTKXmarkerMapper.h"
 
 
 ML_START_NAMESPACE
@@ -23,10 +22,10 @@ ML_START_NAMESPACE
 //! Calls init functions of all modules to add their types to the runtime type
 //! system of the ML.
 //----------------------------------------------------------------------------------
-int UMDTestInit()
+int UMDVTKXmarkerMapperInit()
 {
   // Add initClass calls from modules here.
-  Test::initClass();
+  VTKXmarkerMapper::initClass();
 
   return 1;
 }
@@ -35,4 +34,4 @@ ML_END_NAMESPACE
 
 
 //! Calls the init method implemented above during load of shared library.
-ML_INIT_LIBRARY(UMDTestInit)
+ML_INIT_LIBRARY(UMDVTKXmarkerMapperInit)

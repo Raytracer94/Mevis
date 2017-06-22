@@ -2,15 +2,322 @@
 network  {
   watchlist = ""
 }
+module VTKXmarkerMapper {
+  internal  {
+    frame = "529 645 144 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "964 567 204 26"
+        sizeHint = "90 26"
+        wasOpen = yes
+      }
+    }
+  }
+  fields  {
+    instanceName = VTKXmarkerMapper
+  }
+}
+module Unwinding {
+  internal  {
+    frame = "513 388 104 56"
+    moduleGroupName = Unwindingalgorithm
+    windows  {
+      window _automatic {
+        geometry = "717 270 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Unwinding
+    Y-Size = 50
+    Z-Size = 80
+    Method = radial
+    unwindedPosition = "0 0 0"
+  }
+}
+module So3DMarkerEditor {
+  internal  {
+    frame = "1097 589 144 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "696 400 542 340"
+        sizeHint = "542 340"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = So3DMarkerEditor1
+    interactionProviderID = ""
+    scaleSize = 1
+    scaleLength = 1
+    color = "1 1 1"
+    ambientColor = "0 0 0"
+    specularColor = "0.300000011920929 0.300000011920929 0.300000011920929"
+    enableVector = FALSE
+    drawingOn = TRUE
+    editingOn = TRUE
+    selectingOn = TRUE
+    deleteOnClick = FALSE
+    addOnClick = TRUE
+    edit3DOn = FALSE
+    edit3DVector = FALSE
+    useManagedInteraction = TRUE
+    cursorShape = UNDEFINED_CURSOR
+    colorMode = COLOR_BY_TYPE
+    markerType = 0
+    textColorMode = COLOR_TEXT
+    textMode = TEXT_OFF
+    textColor = "1 1 1"
+    textShadow = TRUE
+    textBackgroundColor = "0.5 0.5 0.5"
+    textBackgroundAlpha = 0.30000001
+    textFontType = SoExtText2::HELVETICA_10
+    vectorArrow = VECTOR_NO_ARROWS
+    lineStyle = Solid
+    drawMode = DrawModeGeometry
+    geometryComplexity = LOW
+    numMarkersThresholdForFastRendering = 5000
+    listString = ""
+    index = 0
+    persistent = FALSE
+    listStringEnable = FALSE
+    applySelect = FALSE
+    name = ""
+    newName = ""
+    overflowMode = None
+    maxSize = 0
+    useInsertTemplate = FALSE
+    posXYZ = "103.50121307373 334.298919677734 56.2720031738281"
+    posC = 0
+    posT = 0
+    posU = 0
+    vecXYZ = "0 0 0"
+    type = 0
+    newPosXYZ = "0 0 0"
+    newPosC = 0
+    newPosT = 0
+    newPosU = 0
+    newVecXYZ = "0 0 0"
+    newType = 0
+  }
+}
+module View3D {
+  internal  {
+    frame = "1001 309 144 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "669 125 1004 645"
+        sizeHint = "1004 645"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View3D
+    autoViewAll = TRUE
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    lutType = Ramp
+    currentTimePoint = 0
+    staticSamplingRate = 1
+    quality = 1
+    filterVolumeData = FilterLinear
+    lutEditorColorPoints = "[ 0 0 0 0, 4095 1 1 1 ]"
+    lutEditorAlphaPoints = "[ 0 0, 4095 1 ]"
+    lutEditorRelativeLut = FALSE
+    lutEditorColorInterpolation = InterpolateRGB
+    lutEditorAlphaFactor = 1
+    orientationProjectionType = PERSPECTIVE
+    orientationLocation = LOWER_RIGHT
+    orientationOn = TRUE
+    orientationModel = CUBE
+    greyCenter = 0.200000062584877
+    greyWidth = 0.389999896287918
+    alphaFactor = 1
+    colorFactor = "1 1 1"
+    camType = TRUE
+    camPosition = "159.56135559082 -189.649749755859 -13.5092926025391"
+    camOrientation = "-0.684868574142456 0.517098724842072 -0.513384819030762 4.10081624984741"
+    initialCameraOrientation = CAMERA_KEEP_AS_IS
+    camFar = 537.32892
+    camNear = 222.58264
+    camFocal = 379.79877
+    camHeight = 0.78539801
+    decoration = FALSE
+    hiResRendering = TRUE
+    annotations = TRUE
+    background = TRUE
+    mode = VolumeRendering
+    interactiveQuality = Medium
+  }
+  internalFields  {
+    renderer.gradientQuality = GradientQualityAutomatic
+    renderer.enhancementAlphaMix = 0.25
+    renderer.boundaryEnhancement = FALSE
+    renderer.boundaryEnhancementFactor = 1
+    renderer.boundaryEnhancementExponent = 1
+    renderer.boundaryEnhancementGradientBias = 0
+    renderer.silhouetteEnhancement = FALSE
+    renderer.silhouetteEnhancementExponent = 1
+    renderer.silhouetteEnhancementFactor = 1
+    renderer.toneShading = FALSE
+    renderer.toneShadingWarmColor = "0.67451000213623 0.533333003520966 0.141176000237465"
+    renderer.toneShadingColdColor = "0 0 0.400000005960464"
+    renderer.toneShadingWarmDiffuse = 0.60000002
+    renderer.toneShadingColdDiffuse = 0.2
+    renderer.toneShadingAngle = 45
+    renderer.materialAmbient = 0.60000002
+    renderer.materialDiffuse = 1
+    renderer.materialSpecular = 1
+    renderer.materialSpecularity = 32
+    renderer.light1Enabled = TRUE
+    renderer.light1DiffuseIntensity = 1
+    renderer.light1SpecularIntensity = 1
+    renderer.light1Color = "1 1 1"
+    renderer.light1PolarPhi = 45
+    renderer.light1PolarRho = 0
+    renderer.light2Enabled = FALSE
+    renderer.light2DiffuseIntensity = 1
+    renderer.light2SpecularIntensity = 1
+    renderer.light2Color = "1 1 1"
+    renderer.light2PolarPhi = 0
+    renderer.light2PolarRho = 0
+    renderer.light3Enabled = FALSE
+    renderer.light3DiffuseIntensity = 1
+    renderer.light3SpecularIntensity = 1
+    renderer.light3Color = "1 1 1"
+    renderer.light3PolarPhi = -45
+    renderer.light3PolarRho = 0
+    renderer.sizeOutputX = 132
+    renderer.sizeOutputY = 192
+    renderer.sizeOutputZ = 23
+    renderer.subVolumeStartX = 0
+    renderer.subVolumeStartY = 0
+    renderer.subVolumeStartZ = 0
+    renderer.subVolumeEndX = 132
+    renderer.subVolumeEndY = 192
+    renderer.subVolumeEndZ = 23
+    clip.hideGeometry = FALSE
+    clip.on = FALSE
+    clip.left = FALSE
+    clip.right = FALSE
+    clip.top = FALSE
+    clip.bottom = FALSE
+    clip.rear = FALSE
+    clip.front = FALSE
+    clip.translation0 = "1 0 0"
+    clip.translation1 = "-1 0 0"
+    clip.translation2 = "0 1 0"
+    clip.translation3 = "0 -1 0"
+    clip.translation4 = "0 0 1"
+    clip.translation5 = "0 0 -1"
+    clip.rotation0 = "0 0 0.999999940395355 1.57079994678497"
+    clip.rotation1 = "0 0 -0.999999940395355 1.57079994678497"
+    clip.rotation2 = "0 0 -1 3.1415901184082"
+    clip.rotation3 = "0 0 1 0"
+    clip.rotation4 = "-0.999999940395355 0 0 1.57079994678497"
+    clip.rotation5 = "0.999999940395355 0 0 1.57079994678497"
+  }
+}
+module XMarkerListContainer {
+  internal  {
+    frame = "907 830 152 56"
+    moduleGroupName = CenterlineExtraction
+  }
+  fields  {
+    instanceName = XMarkerListContainer
+    listString = ""
+    index = 0
+    persistent = FALSE
+    listStringEnable = FALSE
+    applySelect = FALSE
+    name = ""
+    newName = ""
+    overflowMode = None
+    maxSize = 0
+    useInsertTemplate = FALSE
+    posXYZ = "103.50121307373 334.298919677734 56.2720031738281"
+    posC = 0
+    posT = 0
+    posU = 0
+    vecXYZ = "0 0 0"
+    type = 0
+    newPosXYZ = "0 0 0"
+    newPosC = 0
+    newPosT = 0
+    newPosU = 0
+    newVecXYZ = "0 0 0"
+    newType = 0
+  }
+}
+module VTKToMLXMarkerList {
+  internal  {
+    frame = "763 942 152 56"
+    moduleGroupName = CenterlineExtraction
+    windows  {
+      window _default {
+        geometry = "839 559 257 22"
+        sizeHint = "257 22"
+        wasOpen = no
+      }
+      window _automatic {
+        geometry = "717 270 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = VTKToMLXMarkerList
+    status = "Valid input connected"
+  }
+}
+module Resample3D {
+  internal  {
+    frame = "-327 1023 104 56"
+    moduleGroupName = Imagepreparation
+    windows  {
+      window _default {
+        geometry = "336 277 327 337"
+        sizeHint = "327 337"
+        wasOpen = no
+      }
+      window _automatic {
+        geometry = "-1 214 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Resample3D
+    keep = "Scale factor"
+    filter = Lanczos_3
+    isotropic = FALSE
+    filterAlways = FALSE
+    filterAlwaysTolerance = 0
+    zoom = "1 1 0.958333333333333"
+    imageSize = "132 192 23"
+    voxelSize = "1 1 1.04347826086957"
+    subVoxelShift = "0 0 0"
+    useReferenceImage = FALSE
+  }
+}
 module DirectDicomImport {
   internal  {
-    frame = "128 993 136 56"
+    frame = "117 985 136 56"
     moduleGroupName = Imagepreparation
     windows  {
       window _default {
         geometry = "206 228 1043 505"
         sizeHint = "1043 505"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -28,7 +335,7 @@ module DirectDicomImport {
     autoCreateCachePath = FALSE
     cacheFileName = DDICacheFile
     consoleSizeInKiloBytes = 64
-    outVolume = 1
+    outVolume = 0
     preferCacheBeforeImport = FALSE
     clearAfterImport = FALSE
     clearSingleFrameCacheAfterImport = TRUE
@@ -340,17 +647,17 @@ validImage hasIssues fileType voxelType imgExt numVoxels numSlices numTimePoints
     dplWorkaroundValueForImageOrientationPatientTag = ""
     composeOtherFilesMode = Single
     silentTrialFileTypes = ".dat .raw .txt"
-    source = "//psf/Home/Desktop/Datensaetze/proband_anonymous/anonymous_hzlwise_proband/im_12"
+    source = $(HOME)/Downloads/Datensaetze/proband_anonymous/anonymous_hzlwise_proband/im_12
     guiCachePath = ""
   }
 }
 module Info {
   internal  {
-    frame = "162 843 56 56"
+    frame = "151 835 56 56"
     moduleGroupName = Imagepreparation
     windows  {
       window _default {
-        geometry = "642 322 564 375"
+        geometry = "269 112 564 375"
         sizeHint = "564 375"
         wasOpen = no
       }
@@ -362,14 +669,14 @@ module Info {
 }
 module ImagePropertyConvert {
   internal  {
-    frame = "-304 949 152 80"
+    frame = "-355 913 152 80"
     moduleGroupName = Imagepreparation
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "162 155 324 631"
+        geometry = "-2 143 324 631"
         sizeHint = "324 631"
-        wasOpen = yes
+        wasOpen = no
       }
     }
   }
@@ -379,25 +686,25 @@ module ImagePropertyConvert {
     cDimInfo = ""
     tDimInfo = ""
     uDimInfo = ""
-    a00 = 1.7708333730698
+    a00 = 1
     a01 = 0
     a02 = 0
     a03 = 0
     a10 = 0
-    a11 = 1.7708333730698
+    a11 = 1
     a12 = 0
     a13 = 0
     a20 = 0
     a21 = 0
-    a22 = 3.5
+    a22 = 1
     a23 = 0
     a30 = 0
     a31 = 0
     a32 = 0
     a33 = 1
-    worldMatrix = "1.7708333730698 0 0 0
-0 1.7708333730698 0 0
-0 0 3.5 0
+    worldMatrix = "1 0 0 0
+0 1 0 0
+0 0 1 0
 0 0 0 1"
     changeDatatype = TRUE
     datatype = "unsigned int16"
@@ -413,19 +720,19 @@ module ImagePropertyConvert {
     changeMaxGrayValue = FALSE
     maxGrayValue = 1
     changeWorldMatrix = TRUE
-    voxelSizeX = 1.7708333730698
-    voxelSizeY = 1.7708333730698
-    voxelSizeZ = 3.5
+    voxelSizeX = 0
+    voxelSizeY = 0
+    voxelSizeZ = 0
     autoApply = TRUE
   }
 }
 module vtkXMLPolyDataReader {
   internal  {
-    frame = "633 1064 160 56"
+    frame = "759 1086 160 56"
     moduleGroupName = CenterlineExtraction
     windows  {
       window _default {
-        geometry = "499 294 267 206"
+        geometry = "104 211 734 206"
         sizeHint = "217 206"
         wasOpen = no
       }
@@ -434,15 +741,22 @@ module vtkXMLPolyDataReader {
   fields  {
     instanceName = vtkXMLPolyDataReader
     timeStep = 0
-    timeStepRange = "0 0 "
+    timeStepRange = "0 -1 "
     status = "Output is valid"
-    unresolvedFileName = "//psf/Home/Desktop/Datensaetze/proband_anonymous/aorta_centerline.vtp"
+    unresolvedFileName = $(HOME)/Downloads/Datensaetze/proband_anonymous/aorta_centerline.vtp
   }
 }
 module vtkPolyDataMapper {
   internal  {
-    frame = "757 960 136 56"
+    frame = "1059 1006 136 56"
     moduleGroupName = CenterlineExtraction
+    windows  {
+      window _default {
+        geometry = "672 116 591 909"
+        sizeHint = "591 909"
+        wasOpen = no
+      }
+    }
   }
   fields  {
     instanceName = vtkPolyDataMapper
@@ -471,8 +785,15 @@ module vtkPolyDataMapper {
 }
 module vtkActor {
   internal  {
-    frame = "749 856 168 56"
+    frame = "1155 926 168 56"
     moduleGroupName = CenterlineExtraction
+    windows  {
+      window _default {
+        geometry = "829 356 275 429"
+        sizeHint = "276 429"
+        wasOpen = no
+      }
+    }
   }
   fields  {
     instanceName = vtkActor
@@ -485,17 +806,17 @@ module vtkActor {
     useBounds = TRUE
     estimatedRenderTime = 0
     renderTimeMultiplier = 1
-    status = "Output Invalidated Because All Input(s) are Invalid"
+    status = "Some Input(s) are Valid and Used"
     addConsumerConnCounter = 1
   }
 }
 module vtkRenderer {
   internal  {
-    frame = "709 792 280 56"
+    frame = "1139 790 280 56"
     moduleGroupName = CenterlineExtraction
     windows  {
       window _default {
-        geometry = "575 315 304 331"
+        geometry = "486 308 304 331"
         sizeHint = "304 331"
         wasOpen = no
       }
@@ -528,7 +849,7 @@ module vtkRenderer {
     viewPoint = "0 0 0 "
     viewport = "0 0 1 1 "
     worldPoint = "0 0 0 0 "
-    status = "Output Invalidated Because All Input(s) are Invalid"
+    status = "Some Input(s) are Valid and Used"
     addActorConnCounter = 1
     addVolumeConnCounter = 1
     addLightConnCounter = 1
@@ -540,7 +861,7 @@ module vtkRenderer {
 }
 module Mask {
   internal  {
-    frame = "-45 786 120 72"
+    frame = "-147 781 120 72"
     moduleGroupName = Imagepreparation
     showNetworkPanel = true
     windows  {
@@ -561,7 +882,7 @@ module Mask {
 }
 module So3DMarkerEditor {
   internal  {
-    frame = "404 29 136 56"
+    frame = "132 138 136 56"
     moduleGroupName = outRealPosition
   }
   fields  {
@@ -622,11 +943,11 @@ module So3DMarkerEditor {
 }
 module View2D {
   internal  {
-    frame = "404 -59 120 56"
+    frame = "132 50 120 56"
     moduleGroupName = outRealPosition
     windows  {
       window _default {
-        geometry = "767 370 400 400"
+        geometry = "920 287 400 400"
         sizeHint = "400 400"
         wasOpen = no
       }
@@ -662,8 +983,8 @@ module View2D {
     sliceOrigin = "0 0"
     useShaders = TRUE
     useManagedInteraction = FALSE
-    lutCenter = 0.503052532672882
-    lutWidth = 0.63589745759964
+    lutCenter = 1
+    lutWidth = 1
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
     annotationSizeMode = ANNO_SHOW_DETAILED
@@ -684,7 +1005,7 @@ module View2D {
 }
 module SoView2DMarkerEditor {
   internal  {
-    frame = "-184 270 160 56"
+    frame = "-255 461 160 56"
     moduleGroupName = Positionmarker
     windows  {
       window _default {
@@ -787,7 +1108,7 @@ module SoView2DMarkerEditor {
 }
 module XMarkerListContainer {
   internal  {
-    frame = "-296 158 160 56"
+    frame = "-375 229 160 56"
     moduleGroupName = Positionmarker
     windows  {
       window _default {
@@ -825,7 +1146,7 @@ module XMarkerListContainer {
 }
 module WorldVoxelConvert {
   internal  {
-    frame = "-84 158 136 56"
+    frame = "-99 245 136 56"
     moduleGroupName = Positionmarker
     windows  {
       window _default {
@@ -851,76 +1172,14 @@ module WorldVoxelConvert {
     keepConstant = World
   }
 }
-module View2D {
-  internal  {
-    frame = "417 377 120 56"
-    moduleGroupName = Unwindingalgorithm
-    windows  {
-      window _default {
-        geometry = "767 370 400 400"
-        sizeHint = "400 400"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = View2D
-    inventorInputOn = TRUE
-    inventorOutputOn = FALSE
-    view2DExtensionsOn = TRUE
-    startSlice = 0
-    numSlices = 1
-    numXSlices = 1
-    sliceStep = 1
-    slab = 1
-    blendMode = BLEND_REPLACE
-    timePoint = 0
-    maxTimePoint = 0
-    filterMode = FILTER_LINEAR
-    standardKeys = TRUE
-    cineMode = CINE_ZT
-    cineDirection = CINE_FORWARD
-    cineRepeat = CINE_ONCE
-    cineSpeed = 0.1
-    cineAlwaysReset = TRUE
-    snapToCenter = TRUE
-    zoomMode = VIEW2D_AUTO_ZOOM
-    unzoomOnImageChange = FALSE
-    sliceZoom = 1
-    sliceZoomSynced = 1
-    baseColor = "1 1 1"
-    margin = "2 2"
-    sliceOrigin = "0 0"
-    useShaders = TRUE
-    useManagedInteraction = FALSE
-    lutCenter = 0.5
-    lutWidth = 1
-    annotationOn = TRUE
-    annotationMode = ANNO_MODE_AUTO
-    annotationSizeMode = ANNO_SHOW_DETAILED
-    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
-    annotationFontSize = ANNO_SIZE_AUTO
-    annoCoords = Voxel
-    annoCTValue = AsIs
-    borderOn = FALSE
-    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
-    valueHighPrecision = TRUE
-    showColorChannelValues = FALSE
-    colorChannelSeparator = " / "
-    maxPrecision = 4
-    enableSlicing = TRUE
-    useRelativeLUTIfNoInputImage = TRUE
-    hiResRendering = TRUE
-  }
-}
 module ImageLoad {
   internal  {
-    frame = "-376 1081 120 56"
+    frame = "-347 1117 120 56"
     moduleGroupName = Imagepreparation
     showNetworkPanel = true
     windows  {
       window _default {
-        geometry = "490 302 474 357"
+        geometry = "850 140 474 357"
         sizeHint = "474 357"
         wasOpen = no
       }
@@ -928,7 +1187,7 @@ module ImageLoad {
   }
   fields  {
     instanceName = ImageLoad
-    filename = "//psf/Home/Desktop/Datensaetze/proband_anonymous/seg.dcm"
+    filename = C:/Users/Hannes/Downloads/Datensaetze/proband_anonymous/seg.dcm
     autoLoad = TRUE
     readRaw = FALSE
     rawX = 1
@@ -947,55 +1206,33 @@ module ImageLoad {
     suppressMLImageFormatCheckSumTests = FALSE
   }
 }
-module Test {
-  internal  {
-    frame = "281 499 120 64"
-    moduleGroupName = Unwindingalgorithm
-    windows  {
-      window _default {
-        geometry = "1114 580 161 126"
-        sizeHint = "161 126"
-        wasOpen = yes
-      }
-      window _automatic {
-        geometry = "717 270 500 600"
-        sizeHint = "260 223"
-        wasOpen = no
-      }
-    }
-  }
-  fields  {
-    instanceName = AortaUnwinding
-    Y-Size = 50
-    Z-Size = 80
-    Method = adaptiv
-    unwindedPosition = "0 0 0"
-  }
-}
 connections  {
+  Unwinding.input0 = Mask.output0
+  Unwinding.input1 = DirectDicomImport.output0
+  Unwinding.inCenterline = XMarkerListContainer.outXMarkerList
+  Unwinding.unwindedPosition = WorldVoxelConvert.voxelPos
+  So3DMarkerEditor1.inXMarkerList = XMarkerListContainer.outXMarkerList
+  View3D.inImage = Mask.output0
+  View3D.inInvPreLUT = So3DMarkerEditor1.self
+  XMarkerListContainer.inXMarkerList = VTKToMLXMarkerList.outputMarkerList
+  VTKToMLXMarkerList.inputVtkObjectInputWrapper = vtkXMLPolyDataReader.outputXMLPolyDataReader
+  Resample3D.input0 = ImageLoad.output0
   Info.input0 = DirectDicomImport.output0
-  ImagePropertyConvert.input0 = ImageLoad.output0
+  ImagePropertyConvert.input0 = Resample3D.output0
   ImagePropertyConvert.datatype = Info.dataType
   ImagePropertyConvert.voxelSizeX = Info.voxelSizeX
   ImagePropertyConvert.voxelSizeY = Info.voxelSizeY
   ImagePropertyConvert.voxelSizeZ = Info.voxelSizeZ
   vtkPolyDataMapper.inputInput_vtkPolyData = vtkXMLPolyDataReader.outputXMLPolyDataReader
-  vtkActor.inputMapper_vtkMapper = vtkRenderer.outputRenderer
-  vtkRenderer.inputLightCollection_vtkLightCollection = vtkPolyDataMapper.outputPolyDataMapper
+  vtkActor.inputMapper_vtkMapper = vtkPolyDataMapper.outputPolyDataMapper
   vtkRenderer.inputvtkPropActor0 = vtkActor.outputActor
   Mask.input0 = DirectDicomImport.output0
   Mask.input1 = ImagePropertyConvert.output0
-  So3DMarkerEditor.inXMarkerList = AortaUnwinding.outrealposition
+  View2D1.inImage = Mask.output0
   View2D1.inInvPreLUT = So3DMarkerEditor.self
   XMarkerListContainer1.inXMarkerList = SoView2DMarkerEditor.outXMarkerList
-  WorldVoxelConvert.input0 = ImagePropertyConvert.output0
+  WorldVoxelConvert.input0 = Mask.output0
   WorldVoxelConvert.worldPos = XMarkerListContainer1.posXYZ
-  View2D.inImage = AortaUnwinding.output0
-  View2D.inInvPreLUT = SoView2DMarkerEditor.self
-  AortaUnwinding.input0 = Mask.output0
-  AortaUnwinding.input1 = DirectDicomImport.output0
-  AortaUnwinding.inCenterline = vtkRenderer.outputRenderer
-  AortaUnwinding.unwindedPosition = WorldVoxelConvert.voxelPos
 }
 networkModel  {
   parentItems  {

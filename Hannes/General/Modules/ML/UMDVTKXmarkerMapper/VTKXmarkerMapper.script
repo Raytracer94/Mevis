@@ -1,0 +1,18 @@
+//----------------------------------------------------------------------------------
+//! UMDVTKXmarkerMapper module definitions.
+/*!
+// \file    VTKXmarkerMapper.script
+// \author  Hannes
+// \date    2017-06-21
+*/
+//----------------------------------------------------------------------------------
+
+
+Window {
+  Vertical {
+    margin = 3
+    Field StartMapper {
+      
+    }
+  }
+}

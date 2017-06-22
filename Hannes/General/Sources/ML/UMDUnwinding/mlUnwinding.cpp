@@ -1,28 +1,28 @@
 //----------------------------------------------------------------------------------
-//! The ML module class Test.
+//! The ML module class Unwinding.
 /*!
 // \file   
 // \author  Hannes
-// \date    2017-05-12
+// \date    2017-06-20
 //
 // 
 */
 //----------------------------------------------------------------------------------
 
-#include "mlTest.h"
-#include "Unwinding.h"
+#include "mlUnwinding.h"
+#include "cUnwinding.h"
 #include <algorithm>
 
 ML_START_NAMESPACE
 
 //! Implements code for the runtime type system of the ML
-ML_MODULE_CLASS_SOURCE(Test, Module);
+ML_MODULE_CLASS_SOURCE(Unwinding, Module);
 
 //----------------------------------------------------------------------------------
 
-Test::Test() : Module(2, 1)
+Unwinding::Unwinding() : Module(2, 1)
 {
-	ML_TRACE_IN("Test::Test()");
+	ML_TRACE_IN("Unwinding::Unwinding()");
   // Suppress calls of handleNotification on field changes to
   // avoid side effects during initialization phase.
   handleNotificationOff();
@@ -32,7 +32,7 @@ Test::Test() : Module(2, 1)
 
   // unwinding method parameter
   static const char * const MethodValues[] = { "radial","adaptiv" };
-  m_MethodFld = addEnum("Method", MethodValues,1);
+  m_MethodFld = addEnum("Method", MethodValues, 1);
   m_MethodFld->setEnumValue(0);
 
   // computation field
@@ -46,25 +46,23 @@ Test::Test() : Module(2, 1)
   m_RealPosFld = addNotify("Compute RealPosition");
   m_unwindedWorldPositionFld = addVector3("unwindedPosition");
   m_pOutRealWorldFld = addBase("outrealposition", &m_realworldposition);
-
-
   // Reactivate calls of handleNotification on field changes.
   handleNotificationOn();
+
 }
 
 //----------------------------------------------------------------------------------
 
-void Test::handleNotification(Field* field)
+void Unwinding::handleNotification(Field* field)
 {
-	ML_TRACE_IN("Test::handleNotification()");
-
+	ML_TRACE_IN("Unwinding::handleNotification()");
 	if (m_ComputeFld == field)
-	{		
+	{
 
 		// get centerline 
 		XMarkerList* pXmarkerList = mlbase_cast<XMarkerList*>(m_CenterlineFld->getBaseValue());
 		// set imagesizes
-		
+
 		m_uiUnwindedImageWidth = static_cast<MLint>(pXmarkerList->getSize());
 		m_uiUnwindedImageHeight = m_YSizeFld->getIntValue();
 		m_uiUnwindedImageDepth = m_ZSizeFld->getIntValue();
@@ -78,7 +76,7 @@ void Test::handleNotification(Field* field)
 		// test for valid input datas
 		if (getUpdatedInputImage(0))
 		{
-			m_pAortaUnwinding = std::unique_ptr<Unwinding>(new Unwinding(getUpdatedInputImage(0), pXmarkerList, m_uiUnwindedImageWidth, m_uiUnwindedImageHeight, m_uiUnwindedImageDepth, m_psUnwindedImage));
+			m_pAortaUnwinding = std::unique_ptr<cUnwinding>(new cUnwinding(getUpdatedInputImage(0), pXmarkerList, m_uiUnwindedImageWidth, m_uiUnwindedImageHeight, m_uiUnwindedImageDepth, m_psUnwindedImage));
 
 			// calculates the unwinded image by chosen method
 			if (m_MethodFld->getEnumValue() == 0)
@@ -114,7 +112,7 @@ void Test::handleNotification(Field* field)
 
 			m_realworldposition.clear();
 			auto pXmarkerList = mlbase_cast<XMarkerList*>(m_CenterlineFld->getBaseValue());
-			m_ppositionAortaUnwinding = std::unique_ptr<Unwinding>(new Unwinding(getUpdatedInputImage(1), pXmarkerList, m_uiUnwindedImageWidth, m_uiUnwindedImageHeight, m_uiUnwindedImageDepth, m_psUnwindedImage));
+			m_ppositionAortaUnwinding = std::unique_ptr<cUnwinding>(new cUnwinding(getUpdatedInputImage(1), pXmarkerList, m_uiUnwindedImageWidth, m_uiUnwindedImageHeight, m_uiUnwindedImageDepth, m_psUnwindedImage));
 
 			unwindingPosition = m_unwindedWorldPositionFld->getVector3Value();
 			m_ppositionAortaUnwinding->calculateRealAortaPosition(m_realworldposition, unwindingPosition, sampletype);
@@ -126,16 +124,16 @@ void Test::handleNotification(Field* field)
 			std::cout << "No AortaUnwinding exist" << std::endl;
 		}
 	}
+  // Handle changes of module parameters and input image fields here.
 }
-
 //----------------------------------------------------------------------------------
 
-void Test::calculateOutputImageProperties(int _iOutputIndex)
+void Unwinding::calculateOutputImageProperties(int _iOutputIndex)
 {
-	ML_TRACE_IN("Test::calculateOutputImageProperties()");
+	ML_TRACE_IN("Unwinding::calculateOutputImageProperties()");
 
 	PagedImage* pOutputImage = getOutputImage(_iOutputIndex);
-	
+
 
 	// create container image			
 	pOutputImage->setImageExtent(ImageVector(m_uiUnwindedImageWidth, m_uiUnwindedImageHeight, m_uiUnwindedImageDepth, 1, 1, 1));
@@ -150,14 +148,13 @@ void Test::calculateOutputImageProperties(int _iOutputIndex)
 }
 
 //----------------------------------------------------------------------------------
-
-ML_CALCULATEOUTPUTSUBIMAGE_NUM_INPUTS_0_SCALAR_TYPES_CPP(Test);
+ML_CALCULATEOUTPUTSUBIMAGE_NUM_INPUTS_0_SCALAR_TYPES_CPP(Unwinding);
 
 template <typename T>
-void Test::calculateOutputSubImage(TSubImage<T>* outputSubImage, int outputIndex)
+void Unwinding::calculateOutputSubImage(TSubImage<T>* outputSubImage, int outputIndex)
 {
 
-	ML_TRACE_IN("template<typename T> Test::calculateOutputSubImage()");
+	ML_TRACE_IN("template<typename T> Unwinding::calculateOutputSubImage()");
 
 
 	if (outputIndex == 0)
@@ -171,5 +168,4 @@ void Test::calculateOutputSubImage(TSubImage<T>* outputSubImage, int outputIndex
 	}
 
 }
-
 ML_END_NAMESPACE

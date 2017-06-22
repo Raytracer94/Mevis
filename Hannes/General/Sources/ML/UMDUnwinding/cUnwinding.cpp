@@ -1,9 +1,9 @@
-#include "Unwinding.h"
+#include "cUnwinding.h"
 
 ML_START_NAMESPACE
 
 
-Unwinding::Unwinding(PagedImage * inputImage, XMarkerList *pXmarkerList, MLint XSize, MLint YSize, MLint ZSize, unsigned short * m_psUnwindedImage)
+cUnwinding::cUnwinding(PagedImage * inputImage, XMarkerList *pXmarkerList, MLint XSize, MLint YSize, MLint ZSize, unsigned short * m_psUnwindedImage)
 {
 	inImage = inputImage;
 	xSize = XSize;
@@ -12,20 +12,20 @@ Unwinding::Unwinding(PagedImage * inputImage, XMarkerList *pXmarkerList, MLint X
 	UnwindedImage = m_psUnwindedImage;
 	centerline = pXmarkerList;
 
-	const SubImageBox UnwindedImageBox(ImageVector(0, 0, 0, 0, 0, 0), ImageVector(xSize - 1,ySize - 1, zSize - 1, 0, 0, 0));
+	SubImageBox UnwindedImageBox(ImageVector(0, 0, 0, 0, 0, 0), ImageVector(xSize - 1, ySize - 1, zSize - 1, 0, 0, 0));
 
-	const SubImage UnwindedSubImage(UnwindedImageBox, MLuint16Type, (void*)UnwindedImage);
+	SubImage UnwindedSubImage(UnwindedImageBox, MLuint16Type, (void*)UnwindedImage);
 
 }
 
-Unwinding::~Unwinding()
+cUnwinding::~cUnwinding()
 {
 }
 
 //----------------------------------------------------------------------------------
 // Unwind the aorta via radial approach
 //----------------------------------------------------------------------------------
-int Unwinding::calculateUnwindedImageViaCircles()
+int cUnwinding::calculateUnwindedImageViaCircles()
 {
 	// parameter for sampling 
 
@@ -36,11 +36,12 @@ int Unwinding::calculateUnwindedImageViaCircles()
 	XMarker nextpointmarker;
 	Vector3 nextpoint;
 	Vector3 upvector;
+	Vector3 rotateVec;
 	// initial sample point 
 	Vector3 sampledpoint;
 
 	// y variables
-	double currdegree= 0;
+	double currdegree = 0;
 	double degreestep = zSize / 360;
 
 	// z variables
@@ -54,17 +55,20 @@ int Unwinding::calculateUnwindedImageViaCircles()
 		{
 			currpointmarker = centerline->at(x);
 			currpoint = Vector3(currpointmarker.x(), currpointmarker.y(), currpointmarker.z());
+			currpoint = inImage->mapWorldToVoxel(currpoint);
 			nextpointmarker = centerline->at(x + 1);
 			nextpoint = Vector3(nextpointmarker.x(), nextpointmarker.y(), nextpointmarker.z());
-
+			nextpoint = inImage->mapWorldToVoxel(nextpoint);
 			axis = nextpoint - currpoint;
 		}
 		else
 		{
 			currpointmarker = centerline->at(x - 1);
 			currpoint = Vector3(currpointmarker.x(), currpointmarker.y(), currpointmarker.z());
+			currpoint = inImage->mapWorldToVoxel(currpoint);
 			nextpointmarker = centerline->at(x - 1);
 			nextpoint = Vector3(nextpointmarker.x(), nextpointmarker.y(), nextpointmarker.z());
+			nextpoint = inImage->mapWorldToVoxel(nextpoint);
 			axis = currpoint - nextpoint;
 		}
 		for (int y = 0; y < ySize; y++) // angle 
@@ -79,13 +83,13 @@ int Unwinding::calculateUnwindedImageViaCircles()
 			currdegree += degreestep;
 		}
 	}
-	
+
 	return 0;
 }
 //----------------------------------------------------------------------------------
 // Unwind the aorta via adaptiv method
 //----------------------------------------------------------------------------------
-int Unwinding::calculateUnwindedImageViaAdaptiv()
+int cUnwinding::calculateUnwindedImageViaAdaptiv()
 {
 	// parameter for sampling 
 
@@ -114,28 +118,34 @@ int Unwinding::calculateUnwindedImageViaAdaptiv()
 	for (int x = 0; x < centerline->getSize(); x++)  // centerline
 	{
 		currdegree = 0; // set currdegree 0 for next centerline point
+
+
+		// set the tangential axis for rotation
 		if (x < centerline->getSize() - 1)
 		{
 			currpointmarker = centerline->at(x);
 			currpoint = Vector3(currpointmarker.x(), currpointmarker.y(), currpointmarker.z());
+			currpoint = inImage->mapWorldToVoxel(currpoint); // world to voxel convert for right position
 			nextpointmarker = centerline->at(x + 1);
 			nextpoint = Vector3(nextpointmarker.x(), nextpointmarker.y(), nextpointmarker.z());
-
+			nextpoint = inImage->mapWorldToVoxel(nextpoint);
 			axis = nextpoint - currpoint;
 		}
-		else
+		else // if the last point
 		{
 			currpointmarker = centerline->at(x - 1);
 			currpoint = Vector3(currpointmarker.x(), currpointmarker.y(), currpointmarker.z());
-			nextpointmarker = centerline->at(x-1);
+			currpoint = inImage->mapWorldToVoxel(currpoint);
+			nextpointmarker = centerline->at(x - 1);
 			nextpoint = Vector3(nextpointmarker.x(), nextpointmarker.y(), nextpointmarker.z());
+			nextpoint = inImage->mapWorldToVoxel(nextpoint);
 			axis = currpoint - nextpoint;
 		}
 		for (int y = 0; y < ySize; y++) // angle 
 		{
 			zstep = 0;// set zstep  0 for next angle 
 
-			// adaptiv tracing of the  raylength for each angle 
+			 // adaptiv tracing of the  raylength for each angle 
 			for (int currraylength; currraylength < 40; currraylength++)
 			{
 				sampledpoint = currpoint + upvector*currraylength;//  *ml::rotation3D(axis, (currdegree*ML_M_PI) / 180);
@@ -165,7 +175,7 @@ int Unwinding::calculateUnwindedImageViaAdaptiv()
 //----------------------------------------------------------------------------------
 // Compute the OriginalPosition
 //----------------------------------------------------------------------------------
-int Unwinding::calculateRealAortaPosition(XMarkerList realworldposition, Vector3 UnwindingPosition, int sampletype)
+int cUnwinding::calculateRealAortaPosition(XMarkerList realworldposition, Vector3 UnwindingPosition, int sampletype)
 {
 	if (sampletype == 0) // realworld calculation for radial approach 
 	{
@@ -177,7 +187,7 @@ int Unwinding::calculateRealAortaPosition(XMarkerList realworldposition, Vector3
 		Vector3 currpoint = Vector3(currpointmarker.x(), currpointmarker.y(), currpointmarker.z());
 
 		// get next xmarker in centerline for axis 
-		if(currpoint.x < centerline->getSize()-1)
+		if (currpoint.x < centerline->getSize() - 1)
 		{
 			nextmarker = centerline->at(UnwindingPosition.x + 1);
 			nextpoint = Vector3(nextmarker.x(), nextmarker.y(), nextmarker.z());
@@ -186,7 +196,7 @@ int Unwinding::calculateRealAortaPosition(XMarkerList realworldposition, Vector3
 		}
 		else // here the nextpoint is the previous point
 		{
-			nextmarker = centerline->at(UnwindingPosition.x -1);
+			nextmarker = centerline->at(UnwindingPosition.x - 1);
 			nextpoint = Vector3(nextmarker.x(), nextmarker.y(), nextmarker.z());
 
 			axis = currpoint - nextpoint;
@@ -199,7 +209,7 @@ int Unwinding::calculateRealAortaPosition(XMarkerList realworldposition, Vector3
 		yratio = 360 * yratio;
 		// find correct depth of the position
 		double zratio = UnwindingPosition.z / zSize;
-		
+
 		// upvector transformation to the point 
 		Vector3 upvector = currpointmarker.vec;
 		Vector3 realposition = currpoint + upvector*zratio;//* ml::rotation3D(axis, (yratio*ML_M_PI) / 180);
@@ -244,7 +254,7 @@ int Unwinding::calculateRealAortaPosition(XMarkerList realworldposition, Vector3
 		double raylength;
 		for (int currraylength; currraylength < 40; currraylength++)
 		{
-			samplepoint = currpoint + upvector*currraylength;//  * ml::rotation3D(axis, (yratio*ML_M_PI) / 180);
+			samplepoint = currpoint + upvector*currraylength; // *   ml::rotation3D(axis, (yratio*ML_M_PI) / 180);
 			if (getGreyValue(samplepoint) == 0)
 			{
 				currraylength++;
@@ -254,7 +264,7 @@ int Unwinding::calculateRealAortaPosition(XMarkerList realworldposition, Vector3
 			raylength = currraylength;
 		}
 
-		double zratio = UnwindingPosition.z /raylength;
+		double zratio = UnwindingPosition.z / raylength;
 
 		// upvector transformation to the point
 		Vector3 realposition = currpoint + upvector*zratio;//  * ml::rotation3D(axis, (yratio*ML_M_PI) / 180);
@@ -266,23 +276,23 @@ int Unwinding::calculateRealAortaPosition(XMarkerList realworldposition, Vector3
 //----------------------------------------------------------------------------------
 // linear Interpolation of the grey values
 //----------------------------------------------------------------------------------
-unsigned short Unwinding::linearInterpolation(Vector3 position)
+unsigned short cUnwinding::linearInterpolation(Vector3 position)
 {
 	// weights for interpolation
 
 	double xWeight = (position.x - (position.x - 1)) / ((position.x + 1) - (position.x - 1));
 	double yWeight = (position.y - (position.y - 1)) / ((position.y + 1) - (position.y - 1));
 	double zWeight = (position.z - (position.z - 1)) / ((position.z + 1) - (position.z - 1));
-		
+
 	// 8 neighbours to position
 	unsigned short greyvalue1 = getGreyValue(position);
-	unsigned short greyvalue2 = getGreyValue(Vector3(position.x+1,position.y,position.z));
-	unsigned short greyvalue3 = getGreyValue(Vector3(position.x, position.y+1, position.z));
-	unsigned short greyvalue4 = getGreyValue(Vector3(position.x+1, position.y+1, position.z));
-	unsigned short greyvalue5 = getGreyValue(Vector3(position.x, position.y, position.z+1));
-	unsigned short greyvalue6 = getGreyValue(Vector3(position.x+1, position.y, position.z+1));
-	unsigned short greyvalue7 = getGreyValue(Vector3(position.x, position.y+1, position.z+1));
-	unsigned short greyvalue8 = getGreyValue(Vector3(position.x+1, position.y+1, position.z+1));
+	unsigned short greyvalue2 = getGreyValue(Vector3(position.x + 1, position.y, position.z));
+	unsigned short greyvalue3 = getGreyValue(Vector3(position.x, position.y + 1, position.z));
+	unsigned short greyvalue4 = getGreyValue(Vector3(position.x + 1, position.y + 1, position.z));
+	unsigned short greyvalue5 = getGreyValue(Vector3(position.x, position.y, position.z + 1));
+	unsigned short greyvalue6 = getGreyValue(Vector3(position.x + 1, position.y, position.z + 1));
+	unsigned short greyvalue7 = getGreyValue(Vector3(position.x, position.y + 1, position.z + 1));
+	unsigned short greyvalue8 = getGreyValue(Vector3(position.x + 1, position.y + 1, position.z + 1));
 
 	// interpolate in x-direction
 
@@ -304,9 +314,9 @@ unsigned short Unwinding::linearInterpolation(Vector3 position)
 //----------------------------------------------------------------------------------
 // Get the grey value in the original image
 //----------------------------------------------------------------------------------
-unsigned short Unwinding::getGreyValue(Vector3 position)
+unsigned short cUnwinding::getGreyValue(Vector3 position)
 {
-	unsigned short* greyvalue =  static_cast<unsigned short*>(UnwindedSubImage.getImagePointer(ImageVector((MLint)position.x, (MLint)position.y, (MLint)position.z, 0, 0, 0)));
+	unsigned short* greyvalue = static_cast<unsigned short*>(UnwindedSubImage.getImagePointer(ImageVector((MLint)position.x, (MLint)position.y, (MLint)position.z, 0, 0, 0)));
 	return *greyvalue;
 }
 ML_END_NAMESPACE

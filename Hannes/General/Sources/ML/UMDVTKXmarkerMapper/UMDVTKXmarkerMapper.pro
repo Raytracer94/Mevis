@@ -1,14 +1,14 @@
 # -----------------------------------------------------------------------------
-# UMDTest project profile
+# UMDVTKXmarkerMapper project profile
 #
 # \file
 # \author  Hannes
-# \date    2017-05-12
+# \date    2017-06-21
 # -----------------------------------------------------------------------------
 
 
 TEMPLATE   = lib
-TARGET     = UMDTest
+TARGET     = UMDVTKXmarkerMapper
 
 DESTDIR    = $$(MLAB_CURRENT_PACKAGE_DIR)/lib
 DLLDESTDIR = $$(MLAB_CURRENT_PACKAGE_DIR)/lib
@@ -17,35 +17,25 @@ DLLDESTDIR = $$(MLAB_CURRENT_PACKAGE_DIR)/lib
 WARN = HIGH
 
 # Add used projects here (see included pri files below for available projects)
-CONFIG += dll ML MLBase vtk MLVTKSupport  
+CONFIG += dll ML MLBase vtk 
 
 MLAB_PACKAGES += Hannes_General \
-                 MeVisLab_Standard\
-				 FMEwork_VTK\
+                 MeVisLab_Standard \
 				 FMEwork_ThirdParty
 
 # make sure that this file is included after CONFIG and MLAB_PACKAGES
-
-#standard
 include ($(MLAB_MeVis_Foundation)/Configuration/IncludePackages.pri)
-#vtk standard
 include ($(MLAB_FMEwork_ThirdParty)/Configuration/DefaultProjectSetup.pri)
-include ($(MLAB_FMEwork_ThirdParty)/Configuration/FMEwork_ThirdParty.pri)
-#vtk module
-include ($(MLAB_FMEwork_VTK)/Configuration/DefaultProjectSetup.pri)
-include ($(MLAB_FMEwork_VTK)/Configuration/FMEwork_VTK.pri)
-DEFINES += UMDTEST_EXPORTS
+DEFINES += UMDVTKXMARKERMAPPER_EXPORTS
 
 # Enable ML deprecated API warnings. To completely disable the deprecated API, change WARN to DISABLE.
 DEFINES += ML_WARN_DEPRECATED
 
 HEADERS += \
-    UMDTestInit.h \
-    UMDTestSystem.h \
-    mlTest.h \
-	Unwinding.h \
+    UMDVTKXmarkerMapperInit.h \
+    UMDVTKXmarkerMapperSystem.h \
+    mlVTKXmarkerMapper.h \
 
 SOURCES += \
-    UMDTestInit.cpp \
-    mlTest.cpp \
-	Unwinding.cpp \
+    UMDVTKXmarkerMapperInit.cpp \
+    mlVTKXmarkerMapper.cpp \

@@ -1,20 +1,20 @@
 //----------------------------------------------------------------------------------
-//! UMDTest module definitions.
+//! UMDVTKXmarkerMapper module definitions.
 /*!
-// \file    UMDTest.def
+// \file    UMDVTKXmarkerMapper.def
 // \author  Hannes
-// \date    2017-05-12
+// \date    2017-06-21
 */
 //----------------------------------------------------------------------------------
 
 
-MLModule Test {
-  DLL                = "MLAB_UMDTest"
+MLModule VTKXmarkerMapper {
+  DLL                = "UMDVTKXmarkerMapper"
 
   genre              = ""
   author             = "Hannes"
   comment            = ""
   keywords           = ""
   seeAlso            = ""
-  externalDefinition = $(LOCAL)/Test.script
+  externalDefinition = $(LOCAL)/VTKXmarkerMapper.script
 }  

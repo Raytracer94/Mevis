@@ -1,20 +1,20 @@
 //----------------------------------------------------------------------------------
-//! UMDTest module definitions.
+//! UMDUnwinding module definitions.
 /*!
-// \file    UMDTest.def
+// \file    UMDUnwinding.def
 // \author  Hannes
-// \date    2017-05-12
+// \date    2017-06-20
 */
 //----------------------------------------------------------------------------------
 
 
-MLModule Test {
-  DLL                = "MLAB_UMDTest"
+MLModule Unwinding {
+  DLL                = "UMDUnwinding"
 
   genre              = ""
   author             = "Hannes"
   comment            = ""
   keywords           = ""
   seeAlso            = ""
-  externalDefinition = $(LOCAL)/Test.script
+  externalDefinition = $(LOCAL)/Unwinding.script
 }  

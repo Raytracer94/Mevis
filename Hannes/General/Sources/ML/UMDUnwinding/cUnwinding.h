@@ -1,30 +1,29 @@
 #pragma once
-#include "UMDTestSystem.h"
-#include <vtkSmartPointer.h>
-#include <vtkXMLPolyDataReader.h>
-#include <vtkPolyData.h>
+#include "UMDUnwindingSystem.h"
 #include <mlModuleIncludes.h>
 #include <mlPagedImage.h>
 #include <math.h>
 #include <mlBase.h>
 #include <mlXMarkerList.h>
 #include <mlRotation.h>
+
+
 ML_START_NAMESPACE
 
-class  Unwinding
+class  cUnwinding
 {
 public:
 	// constructor definition 
 
-	Unwinding(PagedImage* inputImage, XMarkerList* pXmarkerList,MLint XSize, MLint YSize,MLint ZSize,unsigned short* m_psUnwindedImage);
-	
-	~Unwinding();
+	cUnwinding(PagedImage* inputImage, XMarkerList* pXmarkerList, MLint XSize, MLint YSize, MLint ZSize, unsigned short* m_psUnwindedImage);
+
+	~cUnwinding();
 	// unwinding methods
 	int calculateUnwindedImageViaCircles();
 	int calculateUnwindedImageViaAdaptiv();
-	
+
 	// recalculation method
-	int calculateRealAortaPosition(XMarkerList realworldposition,Vector3 UnwindingPosition,int sampletype);
+	int calculateRealAortaPosition(XMarkerList realworldposition, Vector3 UnwindingPosition, int sampletype);
 
 
 	// constructor variables

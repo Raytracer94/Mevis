@@ -1,14 +1,14 @@
 # -----------------------------------------------------------------------------
-# UMDTest project profile
+# UMDUnwinding project profile
 #
 # \file
 # \author  Hannes
-# \date    2017-05-12
+# \date    2017-06-20
 # -----------------------------------------------------------------------------
 
 
 TEMPLATE   = lib
-TARGET     = UMDTest
+TARGET     = UMDUnwinding
 
 DESTDIR    = $$(MLAB_CURRENT_PACKAGE_DIR)/lib
 DLLDESTDIR = $$(MLAB_CURRENT_PACKAGE_DIR)/lib
@@ -17,35 +17,26 @@ DLLDESTDIR = $$(MLAB_CURRENT_PACKAGE_DIR)/lib
 WARN = HIGH
 
 # Add used projects here (see included pri files below for available projects)
-CONFIG += dll ML MLBase vtk MLVTKSupport  
+CONFIG += dll ML MLBase
 
 MLAB_PACKAGES += Hannes_General \
-                 MeVisLab_Standard\
-				 FMEwork_VTK\
-				 FMEwork_ThirdParty
+                 MeVisLab_Standard
 
 # make sure that this file is included after CONFIG and MLAB_PACKAGES
-
-#standard
 include ($(MLAB_MeVis_Foundation)/Configuration/IncludePackages.pri)
-#vtk standard
-include ($(MLAB_FMEwork_ThirdParty)/Configuration/DefaultProjectSetup.pri)
-include ($(MLAB_FMEwork_ThirdParty)/Configuration/FMEwork_ThirdParty.pri)
-#vtk module
-include ($(MLAB_FMEwork_VTK)/Configuration/DefaultProjectSetup.pri)
-include ($(MLAB_FMEwork_VTK)/Configuration/FMEwork_VTK.pri)
-DEFINES += UMDTEST_EXPORTS
+
+DEFINES += UMDUNWINDING_EXPORTS
 
 # Enable ML deprecated API warnings. To completely disable the deprecated API, change WARN to DISABLE.
 DEFINES += ML_WARN_DEPRECATED
 
 HEADERS += \
-    UMDTestInit.h \
-    UMDTestSystem.h \
-    mlTest.h \
-	Unwinding.h \
+    UMDUnwindingInit.h \
+    UMDUnwindingSystem.h \
+    mlUnwinding.h \
+	cUnwinding.h\
 
 SOURCES += \
-    UMDTestInit.cpp \
-    mlTest.cpp \
-	Unwinding.cpp \
+    UMDUnwindingInit.cpp \
+    mlUnwinding.cpp \
+	cUnwinding.cpp\

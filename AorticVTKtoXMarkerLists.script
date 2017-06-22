@@ -1,0 +1,26 @@
+Interface  {
+  Inputs {
+    Field  inResampleXmarker {
+      type = MLBase
+      //internalName = inVTP.inXMarkerList
+    }
+  }
+  Outputs {
+    Field outAorticCenterlineMarker {
+      type = MLBase
+      internalName = outAorticCenterline.outXMarkerList
+    }
+  }
+  Parameters {
+    Field update {
+      type = Trigger
+    }
+  }
+}  
+Commands {
+    source = $(LOCAL)/AorticVTKtoXMarkerLists.py
+    
+    FieldListener update {
+      command = switchVTK
+    }
+}
